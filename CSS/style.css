@@ -19,6 +19,7 @@
     transition: background-image 1s ease;
     position: relative;
     overflow: hidden;
+    background-color: black;
 }
 
 .main-container::before {
