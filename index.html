@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/responsive.css">
+    <title>Weather</title>
+</head>
+
+<body>
+    <div class="main-container">
+        <h1 class="main-title">Weather App</h1>
+        <div class="main-box">
+            <div class="search-box">
+                <input type="text" placeholder="Enter City Name">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="weather-title">
+                <img src="./Images/clear.png" alt="">
+                <h1 class="temp"></h1>
+                <h2 class="city"></h2>
+            </div>
+            <div class="weather-info">
+                <div class="humidity-box">
+                    <img src="./Images/humidity.jpg" alt="">
+                    <div class="text">
+                        <p class="humidity"></p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="wind-box">
+                    <img src="./Images/wind.png" alt="">
+                    <div class="text">
+                        <p class="wind"></p>
+                        <p>wind</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/350478448c.js" crossorigin="anonymous">
+    </script>
+
+    <script>
+        let apiKEY = "c6d9cd7c610a9cfc356052ce7d18f547"
+        let apiURL = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
+
+        let search = document.querySelector(".search-box input")
+        let searchbtn = document.querySelector(".search-box button")
+        let weathericon = document.querySelector(".weather-title img")
+
+        function checkWeather(city) {
+            fetch(apiURL + city + `&appid=${apiKEY}`)
+                .then((result) => {
+                    return result.json();
+                }).then((data) => {
+                    console.log(data);
+
+                    document.querySelector(".city").innerHTML = data.name
+                    document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C"
+                    document.querySelector(".humidity").innerHTML = data.main.humidity + "%"
+                    document.querySelector(".wind").innerHTML = data.wind.speed + "km/h"
+
+                    if (data.weather[0].main == "Clouds") {
+                        weathericon.src = "./Images/clouds.png"
+                    } else if (data.weather[0].main == "Rain") {
+                        weathericon.src = "./Images/rain.png"
+                    } else if (data.weather[0].main == "Mist") {
+                        weathericon.src = "./Images/mist.png"
+                    } else if (data.weather[0].main == "Drizzle") {
+                        weathericon.src = "./Images/drizzle.png"
+                    } else if (data.weather[0].main == "Clear") {
+                        weathericon.src = "./Images/clear.png"
+                    } else if (data.weather[0].main == "Smoke") {
+                        weathericon.src = "./Images/smoke.png"
+                    }
+                })
+
+        }
+
+        searchbtn.addEventListener("click", () => {
+
+            checkWeather(search.value)
+        })
+        search.addEventListener("keyup", (e) => {
+            if (e.code == "Enter") {
+                checkWeather(search.value)
+            }
+
+        })
+
+        // Background Changer 
+
+        let mainContainer = document.querySelector(".main-container")
+
+        let Background = 0
+        const backgroundChanger = () => {
+
+            mainContainer.style.backgroundImage = `url(../Images/bg${Background}.webp)`;
+
+            setTimeout(() => {
+                if (Background === 12) {
+                    Background = 0;
+                } else {
+                    ++Background
+                }
+                backgroundChanger()
+            }, 5000)
+        }
+        backgroundChanger();
+
+        // Screen Animation 
+
+        let weatherBoard = document.querySelector(".main-box")
+        let weatherTitle = document.querySelector(".main-title")
+
+        if (window.location.reload) {
+            setTimeout(() => {
+                weatherTitle.classList.add('screenAnimation')
+                weatherBoard.classList.add('screenAnimation')
+            }, 500)
+        }
+
+
+    </script>
+</body>
+
+</html>
