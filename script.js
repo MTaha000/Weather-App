@@ -10,10 +10,20 @@ function checkWeather(city) {
         .then((result) => {
             return result.json();
         }).then((data) => {
-            console.log(data);
+
+            // Validation 
+
+            if (data.name === undefined) {
+                search.classList.add("submitionError")
+                search.value = "";
+                search.placeholder = "Please Enter a Correct Name";
+            } else {
+                search.classList.remove("submitionError")
+                search.placeholder = "Enter City Name";
+            }
 
             document.querySelector(".city").innerHTML = data.name
-            document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C"
+            document.querySelector(".temp").innerHTML = Math.floor(data.main.temp) + "°C"
             document.querySelector(".humidity").innerHTML = data.main.humidity + "%"
             document.querySelector(".wind").innerHTML = data.wind.speed + "km/h"
 
