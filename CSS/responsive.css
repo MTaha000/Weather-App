@@ -45,6 +45,9 @@
     .weather-title h1 {
         font-size: 45px;
     }
+    .submitionError::placeholder {
+        font-size: 15px;
+    }
 }
 
 @media(max-width:420px) {
@@ -92,5 +95,8 @@
 
     .weather-info {
         margin-bottom: 15px;
+    }
+    .submitionError::placeholder {
+        font-size: 11px;
     }
 }

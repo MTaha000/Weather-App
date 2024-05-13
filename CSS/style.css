@@ -102,11 +102,13 @@
     text-shadow: 2px 2px 2px white;
     letter-spacing: 5px;
 }
-.weather-title h2{
+
+.weather-title h2 {
     text-shadow: 1px 1px 1px white;
     letter-spacing: 2px;
     font-size: 40px;
 }
+
 .weather-info {
     display: flex;
     width: 100%;
@@ -146,9 +148,11 @@
     filter: blur(0);
     opacity: 99;
 }
-.submitionError{
+
+.submitionError {
     border: 2px solid red !important;
 }
-.submitionError::placeholder{
+
+.submitionError::placeholder {
     color: red;
 }
