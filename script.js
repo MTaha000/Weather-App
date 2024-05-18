@@ -71,7 +71,7 @@ const backgroundChanger = () => {
             ++Background
         }
         backgroundChanger()
-    }, 5000)
+    }, 10000)
 }
 backgroundChanger();
 
