@@ -91,23 +91,74 @@
 }
 
 .weather-title {
-    text-align: center;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    position: relative;
 }
 
 .weather-title img {
     width: 150px;
+    transform: scale(.2);
+    transition: 1.5s ease-in-out;
+    opacity: 0;
+    filter: blur(10px);
 }
 
-.weather-title h1 {
+.weather-img-anim {
+    transform: scale(1) !important;
+    opacity: 1 !important;
+    filter: blur(0) !important;
+}
+
+.temp {
     font-size: 70px;
     text-shadow: 2px 2px 2px white;
     letter-spacing: 5px;
+    transform: translateX(350px);
+    transition: 1s ease-in-out;
+    opacity: 0;
+    filter: blur(10px);
 }
 
-.weather-title h2 {
+.city-temp-anim {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    filter: blur(0) !important;
+}
+
+.city {
     text-shadow: 1px 1px 1px white;
     letter-spacing: 2px;
     font-size: 40px;
+    transform: translateX(-350px);
+    transition: 1s ease-in-out;
+    opacity: 0;
+    filter: blur(10px);
+}
+
+.dummy-text {
+    position: absolute;
+    top: 55%;
+    right: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: 1s ease-in-out;
+}
+
+.dummy-text-none {
+    opacity: 0;
+    filter: blur(10px);
+    top: 20%;
 }
 
 .weather-info {

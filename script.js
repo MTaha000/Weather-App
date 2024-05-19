@@ -6,6 +6,12 @@ let searchbtn = document.querySelector(".search-box button")
 let weathericon = document.querySelector(".weather-title img")
 
 function checkWeather(city) {
+    // Animation 
+    document.querySelector(".dummy-text").classList.add("dummy-text-none")
+    document.querySelector(".temp").classList.add("city-temp-anim")
+    document.querySelector(".city").classList.add("city-temp-anim")
+    weathericon.classList.add("weather-img-anim")
+
     fetch(apiURL + city + `&appid=${apiKEY}`)
         .then((result) => {
             return result.json();
@@ -17,6 +23,15 @@ function checkWeather(city) {
                 search.classList.add("submitionError")
                 search.value = "";
                 search.placeholder = "Please Enter a Correct Name";
+                document.querySelector(".humidity").innerHTML = "";
+                document.querySelector(".wind").innerHTML = "";
+
+                // Animation 
+                document.querySelector(".dummy-text").classList.remove("dummy-text-none")
+                document.querySelector(".temp").classList.remove("city-temp-anim")
+                document.querySelector(".city").classList.remove("city-temp-anim")
+                weathericon.classList.remove("weather-img-anim")
+                return;
             } else {
                 search.classList.remove("submitionError")
                 search.placeholder = "Enter City Name";
@@ -39,21 +54,29 @@ function checkWeather(city) {
                 weathericon.src = "./Images/clear.png"
             } else if (data.weather[0].main == "Smoke") {
                 weathericon.src = "./Images/smoke.png"
+            } else if (data.weather[0].main == "Haze") {
+                weathericon.src = "./Images/haze.png"
             }
         })
 
 }
 
 searchbtn.addEventListener("click", () => {
-
     checkWeather(search.value)
 })
 search.addEventListener("keyup", (e) => {
     if (e.code == "Enter") {
         checkWeather(search.value)
+    } else if (e.code == "Backspace") {
+        // Animation 
+        document.querySelector(".dummy-text").classList.remove("dummy-text-none")
+        document.querySelector(".temp").classList.remove("city-temp-anim")
+        document.querySelector(".city").classList.remove("city-temp-anim")
+        weathericon.classList.remove("weather-img-anim")
     }
 
 })
+
 
 // Background Changer 
 

@@ -20,6 +20,11 @@
     .weather-info p {
         font-size: 17px;
     }
+
+    .dummy-text {
+        right: 25%;
+        font-size: 40px;
+    }
 }
 
 @media(max-width:600px) {
@@ -47,8 +52,14 @@
     .weather-title h1 {
         font-size: 45px;
     }
+
     .submitionError::placeholder {
         font-size: 15px;
+    }
+
+    .dummy-text {
+        right: 20%;
+        font-size: 35px;
     }
 }
 
@@ -66,6 +77,7 @@
     .search-box input {
         width: 200px;
         font-size: 15px;
+        padding: 8px 10px;
     }
 
     .search-box button {
@@ -82,7 +94,7 @@
     }
 
     .weather-title h2 {
-        font-size: 20px;
+        font-size: 28px;
     }
 
     .weather-info img {
@@ -98,7 +110,13 @@
     .weather-info {
         margin-bottom: 15px;
     }
+
     .submitionError::placeholder {
         font-size: 11px;
+    }
+
+    .dummy-text {
+        right: 17%;
+        font-size: 30px;
     }
 }
