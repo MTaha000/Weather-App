@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 .main-container {
     display: flex;
     flex-direction: column;
@@ -19,6 +18,7 @@
     position: relative;
     overflow: hidden;
     background-color: black;
+    overflow-y: auto;
 }
 
 .main-container::before {
@@ -66,11 +66,11 @@
 
 .main-box {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     background: linear-gradient(135deg, rgba(248, 248, 248, 0.5), rgba(205, 229, 235, 0.5));
-    height: 300px;
+    height: 35%;
     width: 60%;
     border-radius: 50px;
     box-shadow: 3px 3px 3px 3px black;
@@ -79,18 +79,17 @@
     filter: blur(10px);
     opacity: 0;
     transition: 1s ease-in-out;
-    margin-top: 150px;
-    margin-bottom: 50px;
-    overflow-y: auto;
+    margin-top: 5%;
+    margin-bottom: 1%;
+    padding-bottom: 1%;
 }
 
 .search-box {
-    height: 50px;
+    height: 25%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin-top: 20px;
 }
 
 .search-box input {
@@ -115,7 +114,7 @@
 }
 
 .weather-box {
-    height: 250px;
+    height: 75%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -162,7 +161,7 @@
     transition: 1s ease-in-out;
     opacity: 0;
     filter: blur(10px);
-    margin: 10px;
+    margin: 1%;
 }
 
 .city-temp-anim {
@@ -179,6 +178,7 @@
     transition: 1s ease-in-out;
     opacity: 0;
     filter: blur(10px);
+    margin-bottom: 1%;
 }
 
 .weather-info {

@@ -21,9 +21,8 @@ function checkWeather(city) {
         .then((result) => {
             return result.json();
         }).then((data) => {
-            console.log(data);
-            // Validation 
 
+            // Validation 
             if (data.name === undefined) {
                 search.classList.add("submitionError")
                 search.value = "";
@@ -37,8 +36,9 @@ function checkWeather(city) {
                 document.querySelector(".city").innerHTML = "";
 
                 // Animation 
-                mainBox.style.height = "300px"
-                weatherBox.style.height = "250px"
+                mainBox.style.height = "35%"
+                weatherBox.style.height = "75%"
+                searchBox.style.height = "25%"
                 document.querySelector(".temp").classList.remove("city-temp-anim")
                 document.querySelector(".city").classList.remove("city-temp-anim")
                 weathericon.classList.remove("weather-img-anim")
@@ -82,18 +82,21 @@ let searchBox = document.querySelector(".search-box")
 let weatherBox = document.querySelector(".weather-box")
 
 searchbtn.addEventListener("click", () => {
-    mainBox.style.height = "550px"
-    weatherBox.style.height = "500px"
+    mainBox.style.height = "65%"
+    weatherBox.style.height = "85%"
+    searchBox.style.height = "15%"
     checkWeather(search.value)
 })
 search.addEventListener("keyup", (e) => {
     if (e.code == "Enter") {
-        mainBox.style.height = "550px"
-        weatherBox.style.height = "500px"
+        mainBox.style.height = "65%"
+        weatherBox.style.height = "85%"
+        searchBox.style.height = "15%"
         checkWeather(search.value)
     } else if (e.code == "Backspace") {
-        mainBox.style.height = "300px"
-        weatherBox.style.height = "250px"
+        mainBox.style.height = "35%"
+        weatherBox.style.height = "75%"
+        searchBox.style.height = "25%"
         // Animation 
         document.querySelector(".temp").classList.remove("city-temp-anim")
         document.querySelector(".city").classList.remove("city-temp-anim")
