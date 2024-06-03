@@ -82,14 +82,14 @@ let searchBox = document.querySelector(".search-box")
 let weatherBox = document.querySelector(".weather-box")
 
 searchbtn.addEventListener("click", () => {
-    mainBox.style.height = "65%"
+    mainBox.style.height = "70%"
     weatherBox.style.height = "85%"
     searchBox.style.height = "15%"
     checkWeather(search.value)
 })
 search.addEventListener("keyup", (e) => {
     if (e.code == "Enter") {
-        mainBox.style.height = "65%"
+        mainBox.style.height = "70%"
         weatherBox.style.height = "85%"
         searchBox.style.height = "15%"
         checkWeather(search.value)
