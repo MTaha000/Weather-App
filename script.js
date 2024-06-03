@@ -7,38 +7,48 @@ let weathericon = document.querySelector(".weather-title img")
 
 function checkWeather(city) {
     // Animation 
-    document.querySelector(".dummy-text").classList.add("dummy-text-none")
+
     document.querySelector(".temp").classList.add("city-temp-anim")
     document.querySelector(".city").classList.add("city-temp-anim")
     weathericon.classList.add("weather-img-anim")
+    document.querySelector(".description").classList.add("weather-img-anim")
 
     fetch(apiURL + city + `&appid=${apiKEY}`)
         .then((result) => {
             return result.json();
         }).then((data) => {
-
+            console.log(data);
             // Validation 
 
             if (data.name === undefined) {
                 search.classList.add("submitionError")
                 search.value = "";
-                search.placeholder = "Please Enter a Correct Name";
+                search.placeholder = "Please Enter a Correct City Name";
                 document.querySelector(".humidity").innerHTML = "";
                 document.querySelector(".wind").innerHTML = "";
+                document.querySelector(".pressure").innerHTML = "";
+                weathericon.src = "";
+                document.querySelector(".description").innerHTML = "";
+                document.querySelector(".temp").innerHTML = "";
+                document.querySelector(".city").innerHTML = "";
 
                 // Animation 
-                document.querySelector(".dummy-text").classList.remove("dummy-text-none")
+                mainBox.style.height = "300px"
+                weatherBox.style.height = "250px"
                 document.querySelector(".temp").classList.remove("city-temp-anim")
                 document.querySelector(".city").classList.remove("city-temp-anim")
                 weathericon.classList.remove("weather-img-anim")
+                document.querySelector(".description").classList.remove("weather-img-anim")
                 return;
             } else {
                 search.classList.remove("submitionError")
                 search.placeholder = "Enter City Name";
             }
 
-            document.querySelector(".city").innerHTML = data.name
-            document.querySelector(".temp").innerHTML = Math.floor(data.main.temp) + "°C"
+            document.querySelector(".description").innerHTML = data.weather[0].description
+            document.querySelector(".city").innerHTML = `${data.name} / ${data.sys.country}`
+            document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C"
+            document.querySelector(".pressure").innerHTML = data.main.pressure
             document.querySelector(".humidity").innerHTML = data.main.humidity + "%"
             document.querySelector(".wind").innerHTML = data.wind.speed + "km/h"
 
@@ -56,23 +66,43 @@ function checkWeather(city) {
                 weathericon.src = "./Images/smoke.png"
             } else if (data.weather[0].main == "Haze") {
                 weathericon.src = "./Images/haze.png"
+            } else if (data.weather[0].main == "Thunderstorm") {
+                weathericon.src = "./Images/thunderstorm.png"
             }
+
         })
 
 }
+let mainBox = document.querySelector(".main-box")
+let searchBox = document.querySelector(".search-box")
+let weatherBox = document.querySelector(".weather-box")
 
 searchbtn.addEventListener("click", () => {
+    mainBox.style.height = "550px"
+    weatherBox.style.height = "500px"
     checkWeather(search.value)
 })
 search.addEventListener("keyup", (e) => {
     if (e.code == "Enter") {
+        mainBox.style.height = "550px"
+        weatherBox.style.height = "500px"
         checkWeather(search.value)
     } else if (e.code == "Backspace") {
+        mainBox.style.height = "300px"
+        weatherBox.style.height = "250px"
         // Animation 
-        document.querySelector(".dummy-text").classList.remove("dummy-text-none")
         document.querySelector(".temp").classList.remove("city-temp-anim")
         document.querySelector(".city").classList.remove("city-temp-anim")
         weathericon.classList.remove("weather-img-anim")
+        document.querySelector(".description").classList.remove("weather-img-anim")
+
+        weathericon.src = "";
+        document.querySelector(".description").innerHTML = "";
+        document.querySelector(".temp").innerHTML = "";
+        document.querySelector(".city").innerHTML = "";
+        document.querySelector(".humidity").innerHTML = "";
+        document.querySelector(".wind").innerHTML = "";
+        document.querySelector(".pressure").innerHTML = "";
     }
 
 })
@@ -80,23 +110,23 @@ search.addEventListener("keyup", (e) => {
 
 // Background Changer 
 
-let mainContainer = document.querySelector(".main-container")
+// let mainContainer = document.querySelector(".main-container")
 
-let Background = 0
-const backgroundChanger = () => {
+// let Background = 0
+// const backgroundChanger = () => {
 
-    mainContainer.style.backgroundImage = `url(../Images/bg${Background}.webp)`;
+//     mainContainer.style.backgroundImage = `url(../Images/bg${Background}.webp)`;
 
-    setTimeout(() => {
-        if (Background === 12) {
-            Background = 0;
-        } else {
-            ++Background
-        }
-        backgroundChanger()
-    }, 10000)
-}
-backgroundChanger();
+//     setTimeout(() => {
+//         if (Background === 12) {
+//             Background = 0;
+//         } else {
+//             ++Background
+//         }
+//         backgroundChanger()
+//     }, 10000)
+// }
+// backgroundChanger();
 
 // Screen Animation 
 

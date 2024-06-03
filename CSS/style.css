@@ -11,12 +11,11 @@
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    background-image: url(../Images/bg0.webp);
+    background-image: url(../Images/bg9.webp);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    transition: background-image 7s ease;
     position: relative;
     overflow: hidden;
     background-color: black;
@@ -56,8 +55,8 @@
     align-items: center;
     flex-direction: column;
     background: linear-gradient(135deg, rgba(248, 248, 248, 0.5), rgba(205, 229, 235, 0.5));
-    height: 550px;
-    width: 600px;
+    height: 300px;
+    width: 60%;
     border-radius: 50px;
     box-shadow: 3px 3px 3px 3px black;
     z-index: 1;
@@ -69,10 +68,19 @@
     margin-bottom: 50px;
 }
 
+.search-box {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 20px;
+}
+
 .search-box input {
     font-size: 20px;
     font-weight: 900;
-    width: 450px;
+    width: 80%;
     padding: 10px 20px;
     border-radius: 20px;
     border: none;
@@ -90,15 +98,19 @@
     box-shadow: 1px 1px 1px 1px black;
 }
 
-.weather-title {
+.weather-box {
+    height: 250px;
     width: 100%;
-    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.weather-title {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    position: relative;
-    position: relative;
 }
 
 .weather-title img {
@@ -115,6 +127,17 @@
     filter: blur(0) !important;
 }
 
+.description {
+    color: white;
+    background-color: rgb(12, 12, 12, 0.5);
+    padding: 2px 5px;
+    border-radius: 5px;
+    transform: scale(.2);
+    transition: 1.5s ease-in-out;
+    opacity: 0;
+    filter: blur(10px);
+}
+
 .temp {
     font-size: 70px;
     text-shadow: 2px 2px 2px white;
@@ -123,6 +146,7 @@
     transition: 1s ease-in-out;
     opacity: 0;
     filter: blur(10px);
+    margin: 10px;
 }
 
 .city-temp-anim {
@@ -141,30 +165,11 @@
     filter: blur(10px);
 }
 
-.dummy-text {
-    position: absolute;
-    top: 55%;
-    right: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    font-size: 40px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    transition: 1s ease-in-out;
-}
-
-.dummy-text-none {
-    opacity: 0;
-    filter: blur(10px);
-    top: 20%;
-}
-
 .weather-info {
     display: flex;
     width: 100%;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .weather-info p {
@@ -183,7 +188,11 @@
 .humidity-box {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+}
+
+.pressure-box {
+    display: flex;
+    align-items: center;
 }
 
 .wind-box {

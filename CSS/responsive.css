@@ -1,3 +1,9 @@
+@media(max-width:1000px) {
+    .main-box {
+        width: 75%;
+    }
+}
+
 @media(max-width:750px) {
     .main-title {
         font-size: 40px;
@@ -5,12 +11,19 @@
     }
 
     .main-box {
-        height: 500px;
-        width: 500px;
+        width: 90%;
+        gap: 10px;
     }
 
-    .search-box input {
-        width: 350px;
+    .weather-info {
+        justify-content: space-evenly;
+        gap: 15px;
+    }
+
+    .humidity-box,
+    .pressure-box,
+    .wind-box {
+        flex-direction: column;
     }
 
     .weather-title h1 {
@@ -19,11 +32,6 @@
 
     .weather-info p {
         font-size: 17px;
-    }
-
-    .dummy-text {
-        right: 25%;
-        font-size: 40px;
     }
 }
 
@@ -34,14 +42,13 @@
     }
 
     .main-box {
-        height: 500px;
-        width: 400px;
+        width: 95%;
         margin-top: 130px;
         margin-bottom: 40px;
     }
 
     .search-box input {
-        width: 250px;
+
         font-size: 17px;
     }
 
@@ -56,11 +63,6 @@
     .submitionError::placeholder {
         font-size: 15px;
     }
-
-    .dummy-text {
-        right: 20%;
-        font-size: 35px;
-    }
 }
 
 @media(max-width:420px) {
@@ -69,13 +71,8 @@
         width: 85%;
     }
 
-    .main-box {
-        height: 400px;
-        width: 300px;
-    }
-
     .search-box input {
-        width: 200px;
+        width: 70%;
         font-size: 15px;
         padding: 8px 10px;
     }
@@ -104,7 +101,7 @@
     }
 
     .weather-info p {
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .weather-info {
@@ -113,10 +110,5 @@
 
     .submitionError::placeholder {
         font-size: 11px;
-    }
-
-    .dummy-text {
-        right: 17%;
-        font-size: 30px;
     }
 }
