@@ -81,6 +81,7 @@
     transition: 1s ease-in-out;
     margin-top: 150px;
     margin-bottom: 50px;
+    overflow-y: auto;
 }
 
 .search-box {
