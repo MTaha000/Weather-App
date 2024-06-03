@@ -1,13 +1,38 @@
+@media(max-width:1350px) {
+    .main-title {
+        width: 68%;
+    }
+
+    .main-container span {
+        font-size: 25px;
+        top: 7%;
+    }
+}
+
 @media(max-width:1000px) {
     .main-box {
         width: 75%;
+    }
+
+    .main-title {
+        width: 77%;
+        font-size: 40px;
+    }
+
+    .main-container span {
+        font-size: 22px;
+        top: 7.2%;
     }
 }
 
 @media(max-width:750px) {
     .main-title {
         font-size: 40px;
-        width: 75%;
+        width: 80%;
+    }
+
+    .main-container span {
+        font-size: 15px;
     }
 
     .main-box {
@@ -37,8 +62,15 @@
 
 @media(max-width:600px) {
     .main-title {
-        font-size: 35px;
-        width: 80%;
+        font-size: 32px;
+        width: 85%;
+        padding: 20px 20px 20px 0;
+    }
+
+    .main-container span {
+        font-size: 12px;
+        left: 0.5%;
+        top: 6.5%;
     }
 
     .main-box {
@@ -69,6 +101,11 @@
     .main-title {
         font-size: 30px;
         width: 85%;
+    }
+
+    .main-container span {
+        font-size: 10px;
+        top: 9.5%;
     }
 
     .search-box input {

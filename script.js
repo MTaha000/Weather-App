@@ -5,6 +5,10 @@ let search = document.querySelector(".search-box input")
 let searchbtn = document.querySelector(".search-box button")
 let weathericon = document.querySelector(".weather-title img")
 
+let dateAndTime = document.querySelector(".main-container span")
+let date = new Date();
+dateAndTime.innerHTML = `Date : ${date.toDateString()}`;
+
 function checkWeather(city) {
     // Animation 
 
@@ -107,29 +111,6 @@ search.addEventListener("keyup", (e) => {
 
 })
 
-
-// Background Changer 
-
-// let mainContainer = document.querySelector(".main-container")
-
-// let Background = 0
-// const backgroundChanger = () => {
-
-//     mainContainer.style.backgroundImage = `url(../Images/bg${Background}.webp)`;
-
-//     setTimeout(() => {
-//         if (Background === 12) {
-//             Background = 0;
-//         } else {
-//             ++Background
-//         }
-//         backgroundChanger()
-//     }, 10000)
-// }
-// backgroundChanger();
-
-// Screen Animation 
-
 let weatherBoard = document.querySelector(".main-box")
 let weatherTitle = document.querySelector(".main-title")
 
@@ -137,5 +118,6 @@ if (window.location.reload) {
     setTimeout(() => {
         weatherTitle.classList.add('screenAnimation')
         weatherBoard.classList.add('screenAnimation')
+        dateAndTime.classList.add("screenAnimation")
     }, 500)
 }
